@@ -2,6 +2,7 @@ package com.madantiwari.listintentandmore;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -48,10 +49,14 @@ public class MainActivity extends AppCompatActivity {
                 String country = parent.getItemAtPosition(position).toString();
                 String capital = countriesMap.get(country);
 
-                Toast.makeText(MainActivity.this, "Capital of "+country+" is: "+capital,
-                        Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "Capital of "+country+" is: "+capital,
+//                        Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, CapitalActivity.class);
+                intent.putExtra("Capital",capital);
+                startActivity(intent);
 
             }
+
         });
     }
 
